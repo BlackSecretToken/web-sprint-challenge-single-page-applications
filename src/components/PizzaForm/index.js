@@ -1,9 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import "./index.css";
 
 export default function Index() {
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [err, setErr] = useState(false);
   const [size, setSize] = useState('Small');
@@ -30,6 +32,7 @@ export default function Index() {
         order[top.name] = top.checked ? true : false
       })
       axios.post("https://reqres.in/api/orders", order);
+      navigate('/success');
     }
   }
 
