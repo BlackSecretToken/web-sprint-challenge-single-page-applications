@@ -1,21 +1,21 @@
 import React from "react";
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import "./App.css";
+import Help from './components/Help';
+import PizzaForm from './components/PizzaForm';
+import Home from './components/Home';
 
-// import Home from './components/Home';
-// import About from './components/About';
-// import Contact from './components/Contact';
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      {/* <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-      </Switch> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/pizza" element={<PizzaForm />} />
+      </Routes>
     </div>
   );
 }
